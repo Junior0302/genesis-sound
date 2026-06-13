@@ -8,10 +8,10 @@ RUN apt-get update \
   && chmod +x /usr/local/bin/yt-dlp \
   && rm -rf /var/lib/apt/lists/*
 
-COPY package*.json ./
+COPY backend/package*.json ./
 RUN npm ci --omit=dev --no-audit --no-fund
 
-COPY . .
+COPY backend/. .
 
 ENV NODE_ENV=production
 ENV YT_DLP_PATH=/usr/local/bin/yt-dlp

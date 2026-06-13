@@ -1,0 +1,9 @@
+.git
+.vercel
+frontend/node_modules
+frontend/dist
+backend/node_modules
+backend/temp
+backend/bin
+node_modules
+dist

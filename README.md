@@ -156,7 +156,12 @@ VITE_API_BASE=https://votre-backend-public.example.com/api
 
 Railway servira pour le backend de conversion.
 
-Le projet est deja prepare avec un conteneur Docker dans `backend/Dockerfile` qui:
+Le projet est deja prepare pour Railway avec:
+
+- un `Dockerfile` a la racine du repo pour un deploiement simple
+- un `backend/Dockerfile` si vous choisissez explicitement le dossier `backend`
+
+Le conteneur:
 
 - installe `ffmpeg`
 - installe `yt-dlp`
@@ -167,10 +172,12 @@ Le projet est deja prepare avec un conteneur Docker dans `backend/Dockerfile` qu
 
 1. Creer un nouveau projet Railway depuis GitHub
 2. Selectionner le depot `genesis-sound`
-3. Choisir le dossier racine `backend`
-4. Laisser Railway builder le service avec le `Dockerfile`
+3. Pour commencer, ne changez rien au `Root Directory`
+4. Railway utilisera automatiquement le `Dockerfile` a la racine
 5. Ajouter la variable `FRONTEND_ORIGIN` avec l URL Vercel du frontend
 6. Deployer
+
+Si vous preferez deployer seulement le dossier `backend`, c est aussi possible plus tard, mais la version racine est la plus simple.
 
 ### Variables Railway
 
