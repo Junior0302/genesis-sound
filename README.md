@@ -152,6 +152,39 @@ Exemple:
 VITE_API_BASE=https://votre-backend-public.example.com/api
 ```
 
+## Deploiement Railway
+
+Railway servira pour le backend de conversion.
+
+Le projet est deja prepare avec un conteneur Docker dans `backend/Dockerfile` qui:
+
+- installe `ffmpeg`
+- installe `yt-dlp`
+- installe les dependances Node
+- demarre l API Express
+
+### Etapes Railway
+
+1. Creer un nouveau projet Railway depuis GitHub
+2. Selectionner le depot `genesis-sound`
+3. Choisir le dossier racine `backend`
+4. Laisser Railway builder le service avec le `Dockerfile`
+5. Ajouter la variable `FRONTEND_ORIGIN` avec l URL Vercel du frontend
+6. Deployer
+
+### Variables Railway
+
+```env
+FRONTEND_ORIGIN=https://votre-frontend.vercel.app
+YT_DLP_PATH=yt-dlp
+FFMPEG_PATH=ffmpeg
+```
+
+Notes:
+
+- `PORT` est generalement fourni automatiquement par Railway
+- quand Railway donne une URL publique au backend, utilisez-la dans `VITE_API_BASE` sur Vercel
+
 ## Notes
 
 - Les conversions sont actives si `backend/bin/yt-dlp.exe` est present et si `ffmpeg` est detecte ou configure.
